@@ -138,7 +138,7 @@ def main(qcloud):
                 print("GET CLOUDFLARE IP ERROR: ----Time: " + str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) + "----MESSAGE: " + str(cfips["info"]))
                 return
             cf_cmips = cfips["info"]["CM"]
-            cf_cuips = cfips["info"]["CU"]
+            cf_cuips = cfips["info"]["CM"]
             cf_ctips = cfips["info"]["CT"]
             for domain, sub_domains in DOMAINS.items():
                 for sub_domain, lines in sub_domains.items():
@@ -172,7 +172,7 @@ def main(qcloud):
                             if line == "CM":
                                 changeDNS("CM", cm_info, temp_cf_cmips, domain, sub_domain, qcloud)
                             elif line == "CU":
-                                changeDNS("CM", cu_info, temp_cf_cuips, domain, sub_domain, qcloud)
+                                changeDNS("CU", cu_info, temp_cf_cuips, domain, sub_domain, qcloud)
                             elif line == "CT":
                                 changeDNS("CT", ct_info, temp_cf_ctips, domain, sub_domain, qcloud)
         except Exception as e:
