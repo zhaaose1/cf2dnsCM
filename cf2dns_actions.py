@@ -143,7 +143,7 @@ def main(qcloud):
             for domain, sub_domains in DOMAINS.items():
                 for sub_domain, lines in sub_domains.items():
                     temp_cf_cmips = cf_cmips.copy()
-                    temp_cf_cuips = cf_cmips.copy()
+                    temp_cf_cuips = cf_cuips.copy()
                     temp_cf_ctips = cf_ctips.copy()
                     ret = qcloud.get(module='cns', action='RecordList', domain=domain, length=100, subDomain=sub_domain, recordType="A")
                     if ret["code"] == 0:
@@ -172,7 +172,7 @@ def main(qcloud):
                             if line == "CM":
                                 changeDNS("CM", cm_info, temp_cf_cmips, domain, sub_domain, qcloud)
                             elif line == "CU":
-                                changeDNS("CU", cu_info, temp_cf_cuips, domain, sub_domain, qcloud)
+                                changeDNS("CU", cu_info, temp_cf_cmips, domain, sub_domain, qcloud)
                             elif line == "CT":
                                 changeDNS("CT", ct_info, temp_cf_ctips, domain, sub_domain, qcloud)
         except Exception as e:
