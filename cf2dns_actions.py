@@ -172,7 +172,7 @@ def main(qcloud):
                             if line == "CM":
                                 changeDNS("CM", cm_info, temp_cf_cmips, domain, sub_domain, qcloud)
                             elif line == "CU":
-                                changeDNS("CU", cu_info, temp_cf_cmips, domain, sub_domain, qcloud)
+                                changeDNS("CM", cu_info, temp_cf_cuips, domain, sub_domain, qcloud)
                             elif line == "CT":
                                 changeDNS("CT", ct_info, temp_cf_ctips, domain, sub_domain, qcloud)
         except Exception as e:
