@@ -138,12 +138,12 @@ def main(qcloud):
                 print("GET CLOUDFLARE IP ERROR: ----Time: " + str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) + "----MESSAGE: " + str(cfips["info"]))
                 return
             cf_cmips = cfips["info"]["CM"]
-            cf_cuips = cfips["info"]["CM"]
+            cf_cuips = cfips["info"]["CU"]
             cf_ctips = cfips["info"]["CT"]
             for domain, sub_domains in DOMAINS.items():
                 for sub_domain, lines in sub_domains.items():
                     temp_cf_cmips = cf_cmips.copy()
-                    temp_cf_cuips = cf_cuips.copy()
+                    temp_cf_cuips = cf_cmips.copy()
                     temp_cf_ctips = cf_ctips.copy()
                     ret = qcloud.get(module='cns', action='RecordList', domain=domain, length=100, subDomain=sub_domain, recordType="A")
                     if ret["code"] == 0:
